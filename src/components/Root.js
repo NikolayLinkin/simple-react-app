@@ -9,7 +9,6 @@ import HomeContainer from "../containers/HomeContainer";
 import "../styles/index.scss";
 import HeaderContainer from "../containers/HeaderContainer";
 import RegisterContainer from "../containers/RegisterContainer";
-import {loggedIn} from "../selectors/commonSelectors";
 
 class Root extends Component {
 
@@ -24,6 +23,8 @@ class Root extends Component {
     }
 
     render() {
+        const {loggedIn} = this.props;
+
         return (
             <div className="main">
                 <HeaderContainer/>
