@@ -1,9 +1,15 @@
 import React, {Component} from "react";
-import {Route, Switch} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
 import PropTypes from "prop-types";
 
 import UsersContainer from "../containers/UsersContainer";
 import HomeContainer from "../containers/HomeContainer";
+
+// import "normalize";
+import "../styles/index.scss";
+import HeaderContainer from "../containers/HeaderContainer";
+import RegisterContainer from "../containers/RegisterContainer";
+import {loggedIn} from "../selectors/commonSelectors";
 
 class Root extends Component {
 
@@ -18,18 +24,16 @@ class Root extends Component {
     }
 
     render() {
-        // const {isFetching, data} = this.props;
-        //
-        // if(isFetching || !data) {
-        //     return (<div>Загрузка</div>)
-        // }
-
         return (
             <div className="main">
-                <Switch>
-                    <Route path="/users" component={UsersContainer}/>
-                    <Route path="/" component={HomeContainer}/>
-                </Switch>
+                <HeaderContainer/>
+                <Route path="/" component={HomeContainer}/>
+                <Route path="/users" component={UsersContainer}/>
+                <Route path="/register">
+                    {loggedIn ?
+                        <RegisterContainer/> :
+                        <Redirect to="/settings"/>}
+                </Route>
             </div>
         )
     }

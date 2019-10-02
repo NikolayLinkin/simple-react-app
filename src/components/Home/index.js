@@ -17,7 +17,6 @@ class Index extends Component {
     render() {
         return (
             <>
-                <div className="head"></div>
                 <div className="banner"></div>
                 <div className="catalog"></div>
             </>

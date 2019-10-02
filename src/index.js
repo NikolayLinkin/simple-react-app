@@ -6,11 +6,10 @@ import {AppContainer} from "react-hot-loader";
 import {Provider} from "react-redux";
 
 import {Router} from "react-router-dom";
-import {createBrowserHistory} from "history/";
+import {createBrowserHistory} from "history";
 
 import RootContainer from "./containers/RootContainer";
 
-import './index.css';
 import configureStore from "./store/configureStore";
 
 const render = (Component) => {

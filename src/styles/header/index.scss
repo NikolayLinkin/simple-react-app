@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  height: 80px;
+}
+
+.header__logo {
+  display: block;
+  width: 100px;
+  height: 60px;
+
+  background: #000;
+}
+
+.header__menu {
+
+}
+
+.header__menu__link {
+  margin: 0 15px;
+  color: #000;
+}
+
+.header__menu__img {
+
+}

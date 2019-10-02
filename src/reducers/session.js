@@ -3,6 +3,8 @@ import * as types from "../constatns/ActionTypes";
 const initialState = {
     token: null,
     appLoaded: true,
+    currentUser: null,
+    loggedIn: false,
 };
 
 const session = (state=initialState, action) => {
@@ -18,12 +20,28 @@ const session = (state=initialState, action) => {
       case types.LOGIN_SUCCESS: {
           return {
               ...state,
+              token: action.authToken,
+              loggedIn: true,
+          }
+      }
+
+      case types.FETCH_REGISTER_SUCCESS: {
+          return {
+              ...state,
               authToken: action.authToken,
+              currentUser: action.user,
           }
       }
 
       case types.LOGOUT: {
-          return {...state,}
+          return {...state}
+      }
+
+      case types.FETCH_SESSION_DATA_SUCCESS: {
+          return {
+            ...state,
+            currentUser: action.user,
+          };
       }
 
       default: return state;

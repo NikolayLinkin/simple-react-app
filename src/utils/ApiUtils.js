@@ -3,7 +3,7 @@ import camelize from "camelize";
 export const callApi = (url, options) =>
     fetch(url, options)
         .then(
-            res => (res.ok ? res.json() : Promise.reject(res.text())),
+            res => (res.ok ?  res.json() : res.json()),
             error => Promise.reject(error)
         )
         .then(

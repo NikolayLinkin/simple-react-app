@@ -1,12 +1,23 @@
 import * as types from "../constatns/ActionTypes";
+import {callApi} from "../utils/ApiUtils";
+import {GET_CURRENT_USER} from "../constatns/ApiConstants";
 
 const loginSuccess = authToken => ({
    type: types.LOGIN_SUCCESS,
    authToken,
 });
 
-const fetchSessionData = authToken => dispatch => {
+const fetchSessionDataSuccess = user => ({
+   type: types.FETCH_SESSION_DATA_SUCCESS,
+   user,
+});
 
+const fetchSessionData = authToken => async dispatch => {
+    const options = {headers: {'authorization': `Token ${authToken}`}};
+
+    const {json: {user}} = await callApi(GET_CURRENT_USER, options);
+
+    dispatch(fetchSessionDataSuccess(user));
 };
 
 export const initAuth = () => dispatch => {
@@ -25,6 +36,5 @@ export const login = () => dispatch => {
 
 export const logout = () => dispatch => {
     localStorage.removeItem('jwt');
-    //TODO: redirect
     dispatch({type: types.LOGOUT});
 };
