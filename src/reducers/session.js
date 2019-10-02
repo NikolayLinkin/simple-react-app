@@ -34,7 +34,7 @@ const session = (state=initialState, action) => {
       }
 
       case types.LOGOUT: {
-          return {...state}
+          return {...initialState}
       }
 
       case types.FETCH_SESSION_DATA_SUCCESS: {
