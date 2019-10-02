@@ -19,7 +19,7 @@ const LoggedIn = ({currentUser, logout}) => {
             <Link to="/settings" className="header__menu__link">
                 Settings
             </Link>
-            <Link to={`/${currentUser}`} className="header__menu__link">
+            <Link to={`/${currentUser.username}`} className="header__menu__link">
                 <img src={currentUser.image}
                      className="header__menu__img"
                      alt=""/>
