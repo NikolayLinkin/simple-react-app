@@ -13,6 +13,7 @@ const auth = (state=initialState, action) => {
             };
         }
 
+        case types.FETCH_LOGIN_REQ:
         case types.FETCH_REGISTER_REQ: {
             return {
                 ...state,
@@ -20,6 +21,7 @@ const auth = (state=initialState, action) => {
             }
         }
 
+        case types.FETCH_LOGIN_ERROR:
         case types.FETCH_REGISTER_ERROR: {
             return {
                 ...state,

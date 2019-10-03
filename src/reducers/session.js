@@ -25,6 +25,7 @@ const session = (state=initialState, action) => {
           }
       }
 
+      case types.FETCH_LOGIN_SUCCESS:
       case types.FETCH_REGISTER_SUCCESS: {
           return {
               ...state,
