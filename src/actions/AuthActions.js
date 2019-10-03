@@ -33,10 +33,10 @@ export const fetchRegister = (username, email, password) => async dispatch => {
         return false;
     }
 
-    const {authToken} = json;
+    const {user} = json;
 
-    dispatch(fetchRegisterSuccess(json, authToken));
-    localStorage.setItem('jwt', authToken);
+    dispatch(fetchRegisterSuccess(user, user.token));
+    localStorage.setItem('jwt', user.token);
 };
 
 const fetchLoginError = errors => ({
@@ -69,8 +69,16 @@ export const fetchLogin = (email, password) => async dispatch => {
         return false;
     }
 
-    const {authToken} = json;
+    const {user} = json;
 
-    dispatch(fetchLoginSuccess(json, authToken));
-    localStorage.setItem('jwt', authToken);
+    dispatch(fetchLoginSuccess(user, user.token));
+    localStorage.setItem('jwt', user.token);
+};
+
+export const cleanRegister = () => dispatch => {
+    dispatch({type: types.REGISTER_UNLOAD});
+};
+
+export const cleanLogin = () => dispatch => {
+    dispatch({type: types.LOGIN_UNLOAD});
 };

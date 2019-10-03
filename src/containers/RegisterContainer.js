@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import {getAuthErrors, authFetching} from "../selectors/Auth";
 
-import {fetchRegister} from "../actions/AuthActions";
+import {fetchRegister, cleanRegister} from "../actions/AuthActions";
 
 const RegisterContainer = props => <Register {...props}/>;
 
@@ -17,4 +17,5 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     fetchRegister,
+    cleanRegister,
 })(RegisterContainer);

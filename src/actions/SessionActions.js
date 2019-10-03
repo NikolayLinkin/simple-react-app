@@ -23,7 +23,7 @@ const fetchSessionData = authToken => async dispatch => {
 export const initAuth = () => dispatch => {
     const authToken = localStorage.getItem('jwt');
 
-    if(authToken) {
+    if(authToken && authToken !== 'undefined') {
         dispatch(loginSuccess(authToken));
         dispatch(fetchSessionData(authToken));
     }

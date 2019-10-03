@@ -5,6 +5,13 @@ import {Link} from "react-router-dom";
 import FormListErrors from "./FormsListErrors";
 
 class Register extends Component {
+    static propTypes = {
+        updateFieldAuth: PropTypes.func,
+        fetchRegister: PropTypes.func.isRequired,
+        isFetching: PropTypes.bool,
+        errors: PropTypes.shape({})
+    };
+
     constructor(props) {
         super(props);
         this.submitForm = this.submitForm.bind(this);
@@ -14,19 +21,17 @@ class Register extends Component {
         this.password = null;
     }
 
-    static propTypes = {
-        updateFieldAuth: PropTypes.func,
-        fetchRegister: PropTypes.func.isRequired,
-        isFetching: PropTypes.bool,
-        errors: PropTypes.shape({})
-    };
-
     submitForm(e) {
         e.preventDefault();
 
         const {fetchRegister} = this.props;
 
         fetchRegister(this.name.value, this.email.value, this.password.value);
+    }
+
+    componentWillUnmount() {
+        const {cleanRegister} = this.props;
+        cleanRegister();
     }
 
     render() {

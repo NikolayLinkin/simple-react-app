@@ -30,6 +30,13 @@ const auth = (state=initialState, action) => {
             }
         }
 
+        case types.LOGIN_UNLOAD:
+        case types.REGISTER_UNLOAD: {
+            return {
+                ...initialState,
+            }
+        }
+
         default: return state;
     }
 };

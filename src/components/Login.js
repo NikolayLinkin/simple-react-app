@@ -14,8 +14,8 @@ class Login extends Component {
     }
 
     static propTypes = {
-        errors: PropTypes.shape({}).isRequired,
-        isFetching: PropTypes.bool.isRequired,
+        errors: PropTypes.shape({}),
+        isFetching: PropTypes.bool,
     };
 
     submitForm (e) {
@@ -24,6 +24,11 @@ class Login extends Component {
         const {fetchLogin} = this.props;
 
         fetchLogin(this.email.value, this.password.value);
+    }
+
+    componentWillUnmount() {
+        const {cleanLogin} = this.props;
+        cleanLogin();
     }
 
     render() {
