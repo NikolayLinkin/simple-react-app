@@ -27,6 +27,8 @@ export const initAuth = () => dispatch => {
         dispatch(loginSuccess(authToken));
         dispatch(fetchSessionData(authToken));
     }
+
+    dispatch({type: types.APP_LOAD});
 };
 
 export const login = () => dispatch => {

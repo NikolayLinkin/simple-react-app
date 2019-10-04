@@ -24,20 +24,26 @@ class Root extends Component {
     }
 
     render() {
-        const {loggedIn} = this.props;
+        const {loggedIn, appLoad} = this.props;
+
+        if(appLoad) {
+            return (
+                <div className="main">
+                    <HeaderContainer/>
+                    <Route path="/" component={HomeContainer}/>
+                    <Route path="/users" component={UsersContainer}/>
+                    <Route path="/register">
+                        {!loggedIn ?
+                            <RegisterContainer/> :
+                            <Redirect to="/settings"/>}
+                    </Route>
+                    <Route path="/login" component={LoginContainer}/>
+                </div>
+            )
+        }
 
         return (
-            <div className="main">
-                <HeaderContainer/>
-                <Route path="/" component={HomeContainer}/>
-                <Route path="/users" component={UsersContainer}/>
-                <Route path="/register">
-                    {!loggedIn ?
-                        <RegisterContainer/> :
-                        <Redirect to="/settings"/>}
-                </Route>
-                <Route path="/login" component={LoginContainer}/>
-            </div>
+            <div>Загрузка</div>
         )
     }
 }

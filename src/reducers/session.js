@@ -2,7 +2,7 @@ import * as types from "../constatns/ActionTypes";
 
 const initialState = {
     token: null,
-    appLoaded: true,
+    appLoad: false,
     currentUser: null,
     loggedIn: false,
 };
@@ -13,7 +13,7 @@ const session = (state=initialState, action) => {
       case types.APP_LOAD: {
           return {
               ...state,
-              appLoaded: true,
+              appLoad: true,
           }
       }
 

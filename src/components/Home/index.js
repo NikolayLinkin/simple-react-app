@@ -1,13 +1,20 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
-class Index extends Component {
+class Home extends Component {
     static propTypes = {
 
     };
 
     componentDidMount() {
+        const {
+            fetchArticles,
+            loggedIn,
+        } = this.props;
 
+        const tabName = loggedIn ? 'feed' : '';
+
+        fetchArticles(tabName);
     }
 
     componentWillUnmount() {
@@ -17,11 +24,10 @@ class Index extends Component {
     render() {
         return (
             <>
-                <div className="banner"></div>
                 <div className="catalog"></div>
             </>
         )
     }
 }
 
-export default Index;
+export default Home;

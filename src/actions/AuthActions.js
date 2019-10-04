@@ -1,7 +1,6 @@
 import * as types from "../constatns/ActionTypes";
 import {callApi} from "../utils/ApiUtils";
 import {LOGIN, USERS} from "../constatns/ApiConstants";
-import auth from "../reducers/auth";
 
 const fetchRegisterError = errors => ({
     type: types.FETCH_REGISTER_ERROR,
