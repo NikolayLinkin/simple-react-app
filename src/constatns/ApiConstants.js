@@ -1,4 +1,4 @@
-const API_ROOT = "https://conduit.productionready.io/api";
+export const API_ROOT = "https://conduit.productionready.io/api";
 
 export const GET_CURRENT_USER = `${API_ROOT}/user`;
 

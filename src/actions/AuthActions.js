@@ -1,5 +1,5 @@
 import * as types from "../constatns/ActionTypes";
-import {callApi} from "../utils/ApiUtils";
+import {apiRequest} from "../utils/ApiUtils";
 import {LOGIN, USERS} from "../constatns/ApiConstants";
 
 const fetchRegisterError = errors => ({
@@ -16,16 +16,9 @@ const fetchRegisterSuccess = (user, authToken) => ({
 export const fetchRegister = (username, email, password) => async dispatch => {
     dispatch({type: types.FETCH_REGISTER_REQ});
 
-    const options = {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({user: {username, email, password}})
-    };
+    const body = {user: {username, email, password}};
 
-    const {json} = await callApi(USERS, options);
+    const {json} = await apiRequest.post(USERS, body);
 
     if (json.errors) {
         dispatch(fetchRegisterError(json.errors));
@@ -52,16 +45,9 @@ const fetchLoginSuccess = (user, authToken) => ({
 export const fetchLogin = (email, password) => async dispatch => {
     dispatch({type: types.FETCH_LOGIN_REQ});
 
-    const options = {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({user: {email, password}}),
-    };
+    const body = {user: {email, password}};
 
-    const {json} = await callApi(LOGIN, options);
+    const {json} = await apiRequest.post(LOGIN, body);
 
     if(json.errors) {
         dispatch(fetchLoginError(json.errors));

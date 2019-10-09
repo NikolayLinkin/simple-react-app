@@ -1,0 +1,46 @@
+.articles {
+
+}
+
+.article {
+  position: relative;
+  display: block;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+.article__author {
+
+}
+
+.article__author__link {
+
+}
+
+.article__author__img {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.article__author__name {
+
+}
+
+.article__favorite {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  background: #ff5ead;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

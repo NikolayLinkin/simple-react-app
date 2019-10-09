@@ -4149,6 +4149,11 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
   integrity sha1-2uRqnXj74lKSJYzB54CkHZXAN4I=
 
+flowtypes@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/flowtypes/-/flowtypes-0.0.1.tgz#db32d94284cf78d3d9aa8e15c3b3ad8cd0675019"
+  integrity sha1-2zLZQoTPeNPZqo4Vw7OtjNBnUBk=
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"

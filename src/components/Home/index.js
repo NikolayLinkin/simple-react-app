@@ -1,10 +1,27 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
+import HomeTabs from "./Tabs";
+import ArticlesList from "../ArticlesList";
+
 class Home extends Component {
     static propTypes = {
-
+        fetchArticles: PropTypes.func,
+        loggedIn: PropTypes.bool,
+        articlesAll: PropTypes.array,
+        articlesCount: PropTypes.number,
+        articlesFetching: PropTypes.bool,
     };
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeTab: props.loggedIn ? 'You Feed' : 'Global Feed',
+        };
+
+        this.onClickTab = this.onClickTab.bind(this);
+    }
 
     componentDidMount() {
         const {
@@ -21,10 +38,40 @@ class Home extends Component {
 
     }
 
+    onClickTab(tabName) {
+        this.setState(state => ({
+            activeTab: tabName,
+        }))
+    }
+
     render() {
+        const {
+            articlesAll,
+            articlesCount,
+            articlesFetching,
+            loggedIn,
+        } = this.props;
+
+        const {activeTab} = this.state;
+
         return (
             <>
-                <div className="catalog"></div>
+                <HomeTabs
+                    loggedIn={loggedIn}
+                    onTabClick={this.onClickTab}
+                    activeTab={activeTab}
+                />
+
+                {!articlesFetching ?
+                    <ArticlesList
+                        articlesAll={articlesAll}
+                        articlesCount={articlesCount}
+                    />
+                    : 'Загрузка...'}
+                {/*<div className="catalog">*/}
+                {/*    */}
+                {/*    {!articlesFetching ? JSON.stringify(articlesAll) : 'Загрузка...'}*/}
+                {/*</div>*/}
             </>
         )
     }

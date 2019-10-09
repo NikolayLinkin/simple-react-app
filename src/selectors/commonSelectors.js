@@ -8,3 +8,7 @@ export const getAuthToken = state => state.session.token;
 export const getSessionToken = state => state.session.token;
 
 export const appLoad = state => state.session.appLoad;
+
+export const getArticlesAll = state => state.articles.items;
+export const getArticlesCount = state => state.articles.count;
+export const articlesFetching = state => state.articles.isFetching;

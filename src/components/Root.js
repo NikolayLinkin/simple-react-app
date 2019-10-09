@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Route, Redirect} from "react-router-dom";
 import PropTypes from "prop-types";
 
-import UsersContainer from "../containers/UsersContainer";
 import HomeContainer from "../containers/HomeContainer";
 
 // import "normalize";
@@ -30,8 +29,7 @@ class Root extends Component {
             return (
                 <div className="main">
                     <HeaderContainer/>
-                    <Route path="/" component={HomeContainer}/>
-                    <Route path="/users" component={UsersContainer}/>
+                    <Route exact path="/" component={HomeContainer}/>
                     <Route path="/register">
                         {!loggedIn ?
                             <RegisterContainer/> :
