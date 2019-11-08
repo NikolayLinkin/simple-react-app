@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 import HomeTabs from "./Tabs";
-import ArticlesList from "../ArticlesList";
+import ArticlesList from "../Articles/ArticlesList.tsx";
 
 class Home extends Component {
     static propTypes = {
@@ -64,7 +64,7 @@ class Home extends Component {
 
                 {!articlesFetching ?
                     <ArticlesList
-                        articlesAll={articlesAll}
+                        articles={articlesAll}
                         articlesCount={articlesCount}
                     />
                     : 'Загрузка...'}

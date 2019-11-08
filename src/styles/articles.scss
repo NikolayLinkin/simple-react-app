@@ -43,4 +43,9 @@
   border: none;
   outline: none;
   cursor: pointer;
+
+  &--active {
+    @extend .article__favorite;
+    background: yellow;
+  }
 }
